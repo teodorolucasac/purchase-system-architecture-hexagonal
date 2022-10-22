@@ -1,6 +1,5 @@
 package com.purchases.adapters.in.web.purchase.controller;
 
-import com.purchases.adapters.in.web.client.dto.ClientDTO;
 import com.purchases.adapters.in.web.purchase.dto.PurchaseDTO;
 import com.purchases.adapters.in.web.purchase.mapper.PurchaseDtoMapper;
 import com.purchases.application.port.in.SavePurchaseUseCase;
@@ -20,6 +19,10 @@ public class PurchaseController {
 
     @PostMapping
     PurchaseDTO newClient(@RequestBody PurchaseDTO purchaseDTO) {
-        return mapper.toPurchaseDto(usecase.savePurchase(mapper.toPurchase(purchaseDTO)));
+        var purchase = mapper.toPurchase(purchaseDTO);
+        var clientId = purchaseDTO.getClientId();
+        return mapper.toPurchaseDto(usecase.savePurchase(purchase, clientId));
     }
 }
+    //FORMA QUE ESTAVA SALVANDO SEM RELACIONAMENTO
+    //mapper.toPurchaseDto(usecase.savePurchase(mapper.toPurchase(purchaseDTO)));

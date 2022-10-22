@@ -14,7 +14,6 @@ public class PurchaseDtoMapper {
                 .name(purchaseDTO.getName())
                 .date(purchaseDTO.getDate())
                 .totalValue(purchaseDTO.getTotalValue())
-                .clientId(purchaseDTO.getClientId())
                 .build();
     }
 
@@ -23,7 +22,7 @@ public class PurchaseDtoMapper {
                 .name(purchase.getName())
                 .date(purchase.getDate())
                 .totalValue(purchase.getTotalValue())
-                .clientId(purchase.getClientId())
+                .clientId(purchase.getClient().getId())
                 .build();
     }
 }

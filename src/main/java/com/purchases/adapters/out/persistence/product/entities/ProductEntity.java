@@ -16,7 +16,7 @@ public class ProductEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     private int id;
     private String name;
     private Double price;
@@ -24,5 +24,6 @@ public class ProductEntity {
     private Double priceTotal;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "purchase_id")
     private PurchaseEntity purchase;
 }

@@ -1,20 +1,23 @@
 package com.purchases.adapters.out.persistence.purchase.mapper;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
+import com.purchases.adapters.out.persistence.client.mapper.ClientMapper;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
-import com.purchases.domain.Client;
 import com.purchases.domain.Purchase;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class PurchaseMapper {
+
+    private final ClientMapper clientMapper;
 
     public Purchase toPurchase(PurchaseEntity purchaseEntity) {
         return Purchase.builder()
                 .name(purchaseEntity.getName())
                 .date(purchaseEntity.getDate())
                 .totalValue(purchaseEntity.getTotalValue())
-                .clientId(purchaseEntity.getClient().getId())
+                .client(clientMapper.toClient(purchaseEntity.getClient()))
                 .build();
     }
 
@@ -23,7 +26,7 @@ public class PurchaseMapper {
                 .name(purchase.getName())
                 .date(purchase.getDate())
                 .totalValue(purchase.getTotalValue())
-                .idDomain(purchase.getClient().getId())
+                .client(clientMapper.toClientEntity(purchase.getClient()))
                 .build();
     }
 }

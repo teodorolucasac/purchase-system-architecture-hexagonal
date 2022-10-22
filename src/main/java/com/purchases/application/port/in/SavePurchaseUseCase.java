@@ -5,5 +5,5 @@ import com.purchases.domain.Purchase;
 
 public interface SavePurchaseUseCase {
 
-    Purchase savePurchase(Purchase purchase);
+    Purchase savePurchase(Purchase purchase, int clientId);
 }

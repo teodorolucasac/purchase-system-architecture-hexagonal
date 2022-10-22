@@ -14,5 +14,5 @@ public class Product {
     private Double price;
     private Double quantity;
     private Double priceTotal;
-    private int purchaseId;
+    private Purchase purchase;
 }

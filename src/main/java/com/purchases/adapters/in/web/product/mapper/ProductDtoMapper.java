@@ -15,7 +15,6 @@ public class ProductDtoMapper {
                 .price(productDTO.getPrice())
                 .quantity(productDTO.getQuantity())
                 .priceTotal(productDTO.getPriceTotal())
-                .purchaseId(productDTO.getPurchaseId())
                 .build();
     }
 
@@ -25,7 +24,6 @@ public class ProductDtoMapper {
                 .price(product.getPrice())
                 .quantity(product.getQuantity())
                 .priceTotal(product.getPriceTotal())
-                .purchaseId(product.getPurchaseId())
                 .build();
     }
 }

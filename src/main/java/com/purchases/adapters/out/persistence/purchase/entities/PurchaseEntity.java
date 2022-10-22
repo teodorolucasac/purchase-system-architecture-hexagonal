@@ -20,14 +20,14 @@ public class PurchaseEntity {
 
     @Id
     @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     private int id;
     private String name;
     private LocalDate date;
     private Double totalValue;
 
-    private int idDomain;
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id")
     private ClientEntity client;
 
     @OneToMany(mappedBy = "purchase")

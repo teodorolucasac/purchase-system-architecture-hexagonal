@@ -17,7 +17,5 @@ public class Purchase {
     private String name;
     private LocalDate date;
     private Double totalValue;
-
-    private int clientId;
     private Client client;
 }

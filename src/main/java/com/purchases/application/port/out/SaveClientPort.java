@@ -5,4 +5,5 @@ import com.purchases.domain.Client;
 public interface SaveClientPort {
 
     Client saveClient(Client client);
+
 }
