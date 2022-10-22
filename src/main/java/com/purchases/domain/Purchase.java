@@ -18,4 +18,15 @@ public class Purchase {
     private LocalDate date;
     private Double totalValue;
     private Client client;
+
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", date=" + date +
+                ", totalValue=" + totalValue +
+                ", client=" + client +
+                '}';
+    }
 }

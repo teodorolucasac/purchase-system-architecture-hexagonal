@@ -19,6 +19,9 @@ public class ProductController {
 
     @PostMapping
     ProductDTO newProduct(@RequestBody ProductDTO productDTO) {
-        return mapper.toProductDto(usecase.saveProduct(mapper.toProduct(productDTO)));
+        var product = mapper.toProduct(productDTO);
+        var purchaseId = productDTO.getPurchaseId();
+        usecase.saveProduct(product, purchaseId);
+        return productDTO;
     }
 }

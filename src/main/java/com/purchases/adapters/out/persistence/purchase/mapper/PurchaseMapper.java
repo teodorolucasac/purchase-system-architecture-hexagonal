@@ -14,6 +14,7 @@ public class PurchaseMapper {
 
     public Purchase toPurchase(PurchaseEntity purchaseEntity) {
         return Purchase.builder()
+                .id(purchaseEntity.getId())
                 .name(purchaseEntity.getName())
                 .date(purchaseEntity.getDate())
                 .totalValue(purchaseEntity.getTotalValue())
@@ -23,6 +24,7 @@ public class PurchaseMapper {
 
     public PurchaseEntity toPurchaseEntity(Purchase purchase) {
         return PurchaseEntity.builder()
+                .id(purchase.getId())
                 .name(purchase.getName())
                 .date(purchase.getDate())
                 .totalValue(purchase.getTotalValue())

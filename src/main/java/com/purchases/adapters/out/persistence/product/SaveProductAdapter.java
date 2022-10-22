@@ -2,9 +2,7 @@ package com.purchases.adapters.out.persistence.product;
 
 import com.purchases.adapters.out.persistence.product.mapper.ProductMapper;
 import com.purchases.adapters.out.persistence.product.repository.ProductRepository;
-import com.purchases.application.port.out.SaveClientPort;
 import com.purchases.application.port.out.SaveProductPort;
-import com.purchases.domain.Client;
 import com.purchases.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

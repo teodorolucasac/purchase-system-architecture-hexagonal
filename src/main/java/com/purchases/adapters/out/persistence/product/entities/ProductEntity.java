@@ -23,7 +23,7 @@ public class ProductEntity {
     private Double quantity;
     private Double priceTotal;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "purchase_id")
     private PurchaseEntity purchase;
 }

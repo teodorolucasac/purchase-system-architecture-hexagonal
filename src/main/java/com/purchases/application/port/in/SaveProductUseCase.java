@@ -4,5 +4,5 @@ import com.purchases.domain.Product;
 
 public interface SaveProductUseCase {
 
-    Product saveProduct(Product product);
+    Product saveProduct(Product product, int productId);
 }

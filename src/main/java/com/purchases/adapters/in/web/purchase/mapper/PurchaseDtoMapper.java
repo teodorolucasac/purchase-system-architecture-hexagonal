@@ -4,6 +4,7 @@ import com.purchases.adapters.in.web.client.dto.ClientDTO;
 import com.purchases.adapters.in.web.purchase.dto.PurchaseDTO;
 import com.purchases.domain.Client;
 import com.purchases.domain.Purchase;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component

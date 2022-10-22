@@ -21,7 +21,8 @@ public class PurchaseController {
     PurchaseDTO newClient(@RequestBody PurchaseDTO purchaseDTO) {
         var purchase = mapper.toPurchase(purchaseDTO);
         var clientId = purchaseDTO.getClientId();
-        return mapper.toPurchaseDto(usecase.savePurchase(purchase, clientId));
+        usecase.savePurchase(purchase, clientId);
+        return purchaseDTO;
     }
 }
     //FORMA QUE ESTAVA SALVANDO SEM RELACIONAMENTO

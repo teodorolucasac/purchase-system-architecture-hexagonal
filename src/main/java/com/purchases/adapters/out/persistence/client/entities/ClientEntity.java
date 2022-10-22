@@ -23,7 +23,6 @@ public class ClientEntity {
     private String name;
     private String email;
 
-
     @OneToMany(mappedBy = "client")
     @JsonIgnore
     private List<PurchaseEntity> purchase;

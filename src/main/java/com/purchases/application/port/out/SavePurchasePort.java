@@ -1,6 +1,5 @@
 package com.purchases.application.port.out;
 
-import com.purchases.domain.Client;
 import com.purchases.domain.Purchase;
 
 public interface SavePurchasePort {

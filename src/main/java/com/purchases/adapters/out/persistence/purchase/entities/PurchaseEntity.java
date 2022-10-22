@@ -26,7 +26,7 @@ public class PurchaseEntity {
     private LocalDate date;
     private Double totalValue;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "client_id")
     private ClientEntity client;
 

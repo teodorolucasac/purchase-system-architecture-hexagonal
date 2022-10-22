@@ -10,6 +10,7 @@ public class ClientMapper {
 
     public Client toClient(ClientEntity clientEntity) {
         return Client.builder()
+                .id(clientEntity.getId())
                 .name(clientEntity.getName())
                 .email(clientEntity.getEmail())
                 .build();
@@ -17,6 +18,7 @@ public class ClientMapper {
 
     public ClientEntity toClientEntity(Client client) {
         return ClientEntity.builder()
+                .id(client.getId())
                 .name(client.getName())
                 .email(client.getEmail())
                 .build();

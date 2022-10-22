@@ -24,6 +24,7 @@ public class ProductDtoMapper {
                 .price(product.getPrice())
                 .quantity(product.getQuantity())
                 .priceTotal(product.getPriceTotal())
+                .purchaseId(product.getId())
                 .build();
     }
 }
