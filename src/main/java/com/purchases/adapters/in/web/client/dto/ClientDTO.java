@@ -9,6 +9,7 @@ import lombok.Setter;
 @Builder
 public class ClientDTO {
 
+    private int id;
     private String name;
     private String email;
 

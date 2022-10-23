@@ -22,7 +22,6 @@ public class SaveProductService implements SaveProductUseCase {
         var purchaseEntity = purchaseRepository.findById(purchaseId);
         var purchase = purchaseMapper.toPurchase(purchaseEntity.get());
         product.setPurchase(purchase);
-        System.out.println(product.getPurchase());
         return port.saveProduct(product);
     }
 }

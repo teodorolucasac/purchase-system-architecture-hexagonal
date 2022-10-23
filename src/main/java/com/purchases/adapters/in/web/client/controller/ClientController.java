@@ -2,12 +2,12 @@ package com.purchases.adapters.in.web.client.controller;
 
 import com.purchases.adapters.in.web.client.dto.ClientDTO;
 import com.purchases.adapters.in.web.client.mapper.ClientDtoMapper;
+import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.application.port.in.SaveClientUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/clients")
@@ -17,14 +17,34 @@ public class ClientController {
     private final SaveClientUseCase usecase;
     private final ClientDtoMapper mapper;
 
-    @PostMapping
-    ClientDTO newClient(@RequestBody ClientDTO clientDTO) {
+//    @PostMapping
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
+    ClientDTO saveClient(@RequestBody ClientDTO clientDTO) {
         return mapper.toClientDto(usecase.saveClient(mapper.toClient(clientDTO)));
     }
 
-//    @PostMapping
-//    Client newClient(@RequestBody ClientDTO clientDTO){
-//        var client = mapper.toClient(clientDTO);
-//        return usecase.saveClient(client);
-//    }
+    @GetMapping
+    Iterable<ClientEntity> findAllClients() {
+        return usecase.findAllClients();
+    }
+
+    @GetMapping(path = "/name/{partName}")
+    public Iterable<ClientEntity> findClientsByName(@PathVariable String partName) {
+        return usecase.findClientsByName(partName);
+    }
+
+    @GetMapping(path = "/page/{numberPages}/{numberClients}")
+    Iterable<ClientEntity> findClientsByPage(@PathVariable int numberPages, @PathVariable int numberClients) {
+        return usecase.findClientsByPage(numberPages, numberClients);
+    }
+
+    @GetMapping(path = "/{id}")
+    Optional<ClientEntity> findClientById(@PathVariable int id) {
+        return usecase.findClientById(id);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    void deleteClient(@PathVariable int id) {
+        usecase.deleteClientById(id);
+    }
 }

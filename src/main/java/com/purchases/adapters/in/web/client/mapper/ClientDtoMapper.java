@@ -9,6 +9,7 @@ public class ClientDtoMapper {
 
     public Client toClient(ClientDTO clientDTO) {
         return Client.builder()
+                .id(clientDTO.getId())
                 .name(clientDTO.getName())
                 .email(clientDTO.getEmail())
                 .build();
@@ -16,6 +17,7 @@ public class ClientDtoMapper {
 
     public ClientDTO toClientDto(Client client) {
         return ClientDTO.builder()
+                .id(client.getId())
                 .name(client.getName())
                 .email(client.getEmail())
                 .build();
