@@ -44,7 +44,7 @@ public class SavePurchaseAdapter implements SavePurchasePort {
 
     @Override
     public Iterable<PurchaseEntity> findPurchasesByPage(int numberPages, int numberPurchases) {
-        if(numberPurchases >= 10) numberPurchases = 10;
+        if(numberPurchases >= 5) numberPurchases = 5;
         if(numberPurchases <= 0) numberPurchases = 1;
 
         Pageable page = PageRequest.of(numberPages, numberPurchases);

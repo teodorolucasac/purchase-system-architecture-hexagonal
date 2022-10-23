@@ -1,9 +1,7 @@
 package com.purchases.adapters.out.persistence.product.entities;
 
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -11,6 +9,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "tb_product")
 public class ProductEntity {
 

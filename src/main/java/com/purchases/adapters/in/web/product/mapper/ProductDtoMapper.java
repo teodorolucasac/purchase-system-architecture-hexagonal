@@ -11,6 +11,7 @@ public class ProductDtoMapper {
 
     public Product toProduct(ProductDTO productDTO) {
         return Product.builder()
+                .id(productDTO.getId())
                 .name(productDTO.getName())
                 .price(productDTO.getPrice())
                 .quantity(productDTO.getQuantity())
@@ -20,11 +21,13 @@ public class ProductDtoMapper {
 
     public ProductDTO toProductDto(Product product) {
         return ProductDTO.builder()
+                .id(product.getId())
                 .name(product.getName())
                 .price(product.getPrice())
                 .quantity(product.getQuantity())
                 .priceTotal(product.getPriceTotal())
                 .purchaseId(product.getId())
+                .purchaseId(product.getPurchase().getId())
                 .build();
     }
 }

@@ -49,7 +49,7 @@ public class PurchaseController {
     }
 
     @DeleteMapping(path = "/{id}")
-    void deleteClient(@PathVariable int id) {
+    void deletePurchaseById(@PathVariable int id) {
         usecase.deletePurchaseById(id);
     }
 }
