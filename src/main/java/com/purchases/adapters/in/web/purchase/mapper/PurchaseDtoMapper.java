@@ -12,6 +12,7 @@ public class PurchaseDtoMapper {
 
     public Purchase toPurchase(PurchaseDTO purchaseDTO) {
         return Purchase.builder()
+                .id(purchaseDTO.getId())
                 .name(purchaseDTO.getName())
                 .date(purchaseDTO.getDate())
                 .totalValue(purchaseDTO.getTotalValue())
@@ -20,6 +21,7 @@ public class PurchaseDtoMapper {
 
     public PurchaseDTO toPurchaseDto(Purchase purchase) {
         return PurchaseDTO.builder()
+                .id(purchase.getId())
                 .name(purchase.getName())
                 .date(purchase.getDate())
                 .totalValue(purchase.getTotalValue())

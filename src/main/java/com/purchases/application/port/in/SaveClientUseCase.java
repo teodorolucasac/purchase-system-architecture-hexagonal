@@ -8,6 +8,7 @@ import java.util.Optional;
 public interface SaveClientUseCase {
 
     Client saveClient(Client client);
+
     Iterable<ClientEntity> findAllClients();
 
     Iterable<ClientEntity> findClientsByName(String partName);

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Builder
 public class PurchaseDTO {
 
+    private int id;
     private String name;
     private LocalDate date;
     private Double totalValue;
