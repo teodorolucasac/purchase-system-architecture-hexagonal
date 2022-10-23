@@ -4,6 +4,8 @@ import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter
@@ -18,8 +20,11 @@ public class ProductEntity {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     private int id;
+    @NotBlank
     private String name;
+    @Min(0)
     private Double price;
+    @Min(0)
     private Double quantity;
     private Double priceTotal;
 

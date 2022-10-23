@@ -6,6 +6,7 @@ import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class PurchaseEntity {
     @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "increment")
     private int id;
+    @NotBlank
     private String name;
     private LocalDate date;
     private Double totalValue;

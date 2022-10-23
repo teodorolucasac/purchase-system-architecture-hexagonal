@@ -1,7 +1,6 @@
 package com.purchases.application.port.in;
 
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
-import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.domain.Product;
 
 import java.util.Optional;

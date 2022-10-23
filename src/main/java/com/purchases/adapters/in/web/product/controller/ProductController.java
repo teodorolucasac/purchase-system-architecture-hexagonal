@@ -3,7 +3,6 @@ package com.purchases.adapters.in.web.product.controller;
 import com.purchases.adapters.in.web.product.dto.ProductDTO;
 import com.purchases.adapters.in.web.product.mapper.ProductDtoMapper;
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
-import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.application.port.in.SaveProductUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

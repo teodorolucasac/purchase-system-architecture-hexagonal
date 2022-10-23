@@ -1,8 +1,6 @@
 package com.purchases.adapters.in.web.product.mapper;
 
-import com.purchases.adapters.in.web.client.dto.ClientDTO;
 import com.purchases.adapters.in.web.product.dto.ProductDTO;
-import com.purchases.domain.Client;
 import com.purchases.domain.Product;
 import org.springframework.stereotype.Component;
 

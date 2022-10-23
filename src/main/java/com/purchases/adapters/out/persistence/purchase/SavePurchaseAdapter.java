@@ -1,6 +1,5 @@
 package com.purchases.adapters.out.persistence.purchase;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.adapters.out.persistence.client.mapper.ClientMapper;
 import com.purchases.adapters.out.persistence.client.repository.ClientRepository;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;

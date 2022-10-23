@@ -1,8 +1,6 @@
 package com.purchases.application.port.in;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
-import com.purchases.domain.Client;
 import com.purchases.domain.Purchase;
 
 import java.util.Optional;

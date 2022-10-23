@@ -1,6 +1,5 @@
 package com.purchases.adapters.out.persistence.product;
 
-import com.purchases.adapters.out.persistence.client.repository.ClientRepository;
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
 import com.purchases.adapters.out.persistence.product.mapper.ProductMapper;
 import com.purchases.adapters.out.persistence.product.repository.ProductRepository;

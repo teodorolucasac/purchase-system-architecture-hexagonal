@@ -2,7 +2,6 @@ package com.purchases.adapters.in.web.purchase.controller;
 
 import com.purchases.adapters.in.web.purchase.dto.PurchaseDTO;
 import com.purchases.adapters.in.web.purchase.mapper.PurchaseDtoMapper;
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.application.port.in.SavePurchaseUseCase;
 import lombok.RequiredArgsConstructor;

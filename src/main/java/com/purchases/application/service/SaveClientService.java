@@ -1,8 +1,6 @@
 package com.purchases.application.service;
 
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
-import com.purchases.adapters.out.persistence.client.mapper.ClientMapper;
-import com.purchases.adapters.out.persistence.client.repository.ClientRepository;
 import com.purchases.application.port.in.SaveClientUseCase;
 import com.purchases.application.port.out.SaveClientPort;
 import com.purchases.domain.Client;
@@ -16,8 +14,6 @@ import java.util.Optional;
 public class SaveClientService implements SaveClientUseCase {
 
     private final SaveClientPort port;
-    private final ClientRepository repository;
-    private final ClientMapper mapper;
 
     @Override
     public Client saveClient(Client client) {

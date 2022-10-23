@@ -1,9 +1,6 @@
 package com.purchases.application.service;
 
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
-import com.purchases.adapters.out.persistence.product.repository.ProductRepository;
-import com.purchases.adapters.out.persistence.purchase.mapper.PurchaseMapper;
-import com.purchases.adapters.out.persistence.purchase.repository.PurchaseRepository;
 import com.purchases.application.port.in.SaveProductUseCase;
 import com.purchases.application.port.out.SaveProductPort;
 import com.purchases.domain.Product;
@@ -17,8 +14,6 @@ import java.util.Optional;
 public class SaveProductService implements SaveProductUseCase {
 
     private final SaveProductPort port;
-    private final PurchaseRepository purchaseRepository;
-    private final PurchaseMapper purchaseMapper;
 
     @Override
     public Product saveProduct(Product product, int purchaseId) {

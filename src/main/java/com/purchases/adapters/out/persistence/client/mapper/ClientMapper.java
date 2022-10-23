@@ -2,7 +2,6 @@ package com.purchases.adapters.out.persistence.client.mapper;
 
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.domain.Client;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 @Component

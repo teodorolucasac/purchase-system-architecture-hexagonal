@@ -2,7 +2,6 @@ package com.purchases.adapters.out.persistence.product.mapper;
 
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
 import com.purchases.adapters.out.persistence.purchase.mapper.PurchaseMapper;
-import com.purchases.domain.Client;
 import com.purchases.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
