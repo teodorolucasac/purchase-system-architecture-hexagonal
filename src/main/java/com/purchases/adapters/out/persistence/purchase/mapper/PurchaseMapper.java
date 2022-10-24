@@ -28,7 +28,6 @@ public class PurchaseMapper {
                 .name(purchase.getName())
                 .date(purchase.getDate())
                 .totalValue(purchase.getTotalValue())
-                .client(clientMapper.toClientEntity(purchase.getClient()))
                 .build();
     }
 }

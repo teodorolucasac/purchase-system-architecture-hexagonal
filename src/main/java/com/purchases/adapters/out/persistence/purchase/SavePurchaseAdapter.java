@@ -12,11 +12,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class SavePurchaseAdapter implements SavePurchasePort {
+
+    DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private final PurchaseMapper mapper;
     private final PurchaseRepository repository;
@@ -26,9 +30,17 @@ public class SavePurchaseAdapter implements SavePurchasePort {
     @Override
     public Purchase savePurchase(Purchase purchase, int clientId) {
         var clientEntity = clientRepository.findById(clientId);
-        var client = clientMapper.toClient(clientEntity.get());
-        purchase.setClient(client);
-        return mapper.toPurchase(repository.save(mapper.toPurchaseEntity(purchase)));
+        var purchaseEntity = mapper.toPurchaseEntity(purchase);
+        purchaseEntity.setClient(clientEntity.get());
+
+        if(purchaseEntity.getDate() == null) {
+            purchaseEntity.setDate(LocalDate.now());
+        }
+        if(purchaseEntity.getTotalValue() == null) {
+            purchaseEntity.setTotalValue(0.0);
+        }
+
+        return mapper.toPurchase(repository.save(purchaseEntity));
     }
 
     @Override

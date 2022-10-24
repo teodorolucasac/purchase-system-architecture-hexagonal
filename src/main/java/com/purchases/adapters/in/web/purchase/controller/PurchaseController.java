@@ -20,11 +20,6 @@ public class PurchaseController {
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     PurchaseDTO saveClient(@RequestBody PurchaseDTO purchaseDTO) {
         return mapper.toPurchaseDto(usecase.savePurchase(mapper.toPurchase(purchaseDTO), purchaseDTO.getClientId()));
-//        PORQUE O METODO DE BAIXO MOSTRA ID 0 NO RETORNO DA REQUISIÇÃO (mas salva correto no BD)
-//        var purchase = mapper.toPurchase(purchaseDTO);
-//        var clientId = purchaseDTO.getClientId();
-//        usecase.savePurchase(purchase, clientId);
-//        return mapper.toPurchaseDto(purchase);
     }
 
     @GetMapping

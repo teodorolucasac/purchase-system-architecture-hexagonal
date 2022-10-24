@@ -7,6 +7,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class PurchaseEntity {
     private LocalDate date;
     private Double totalValue;
 
+    @NotNull(message = "ERRO. Vincule a compra à um client.")
     @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "client_id")
     private ClientEntity client;

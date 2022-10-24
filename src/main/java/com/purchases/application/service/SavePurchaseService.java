@@ -17,9 +17,6 @@ public class SavePurchaseService implements SavePurchaseUseCase {
 
     @Override
     public Purchase savePurchase(Purchase purchase, int clientId) {
-//        var clientEntity = clientRepository.findById(purchase.getId());
-//        var client = clientMapper.toClient(clientEntity.get());
-//        purchase.setClient(client);
         return port.savePurchase(purchase, clientId);
     }
 

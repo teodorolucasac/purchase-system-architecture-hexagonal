@@ -26,9 +26,21 @@ public class SaveProductAdapter implements SaveProductPort {
     @Override
     public Product saveProduct(Product product, int purchaseId) {
         var purchaseEntity = purchaseRepository.findById(purchaseId);
-        var purchase = purchaseMapper.toPurchase(purchaseEntity.get());
-        product.setPurchase(purchase);
-        return mapper.toProduct(repository.save(mapper.toProductEntity(product)));
+        var productEntity = mapper.toProductEntity(product);
+
+        productEntity.setPurchase(purchaseEntity.get());
+        productEntity.setPriceTotal(productEntity.getPrice() * productEntity.getQuantity());
+
+        var totalPurchase = productEntity.getPurchase().getTotalValue();
+
+        // If > 0 porque o typeof do ID é int
+        if(productEntity.getId() > 0){
+            var oldProductEntity = repository.findById(productEntity.getId());
+            productEntity.getPurchase().setTotalValue(totalPurchase -= oldProductEntity.get().getPriceTotal());
+        }
+        productEntity.getPurchase().setTotalValue(totalPurchase += productEntity.getPriceTotal());
+
+        return mapper.toProduct(repository.save(productEntity));
     }
 
     @Override

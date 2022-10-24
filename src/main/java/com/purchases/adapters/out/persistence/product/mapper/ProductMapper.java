@@ -30,7 +30,6 @@ public class ProductMapper {
                 .price(product.getPrice())
                 .quantity(product.getQuantity())
                 .priceTotal(product.getPriceTotal())
-                .purchase(purchaseMapper.toPurchaseEntity(product.getPurchase()))
                 .build();
     }
 }

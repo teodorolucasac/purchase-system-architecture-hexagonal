@@ -17,7 +17,6 @@ public class ClientController {
     private final SaveClientUseCase usecase;
     private final ClientDtoMapper mapper;
 
-//    @PostMapping
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     ClientDTO saveClient(@RequestBody ClientDTO clientDTO) {
         return mapper.toClientDto(usecase.saveClient(mapper.toClient(clientDTO)));
