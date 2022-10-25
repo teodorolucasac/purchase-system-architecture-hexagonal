@@ -5,8 +5,10 @@ import com.purchases.adapters.in.web.purchase.mapper.PurchaseDtoMapper;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.application.port.in.SavePurchaseUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -30,6 +32,14 @@ public class PurchaseController {
     @GetMapping(path = "/name/{partName}")
     public Iterable<PurchaseEntity> findPurchasesByName(@PathVariable String partName) {
         return usecase.findPurchasesByName(partName);
+    }
+
+    @GetMapping(path = "/teste/{clientId}/{beforeDate}/{afterDate}")
+    public Iterable<PurchaseEntity> findPurchasesByDate(
+            @PathVariable Integer clientId,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate beforeDate,
+            @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate afterDate) {
+        return usecase.findPurchasesByDate(clientId, beforeDate, afterDate);
     }
 
     @GetMapping(path = "/page/{numberPages}/{numberPurchases}")

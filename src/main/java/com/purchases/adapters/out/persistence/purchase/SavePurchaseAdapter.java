@@ -54,6 +54,11 @@ public class SavePurchaseAdapter implements SavePurchasePort {
     }
 
     @Override
+    public Iterable<PurchaseEntity> findPurchasesByDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate) {
+        return repository.searchPurchasesByDate(clientId, beforeDate, afterDate);
+    }
+
+    @Override
     public Iterable<PurchaseEntity> findPurchasesByPage(int numberPages, int numberPurchases) {
         if(numberPurchases >= 5) numberPurchases = 5;
         if(numberPurchases <= 0) numberPurchases = 1;

@@ -7,6 +7,7 @@ import com.purchases.domain.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -28,6 +29,11 @@ public class SavePurchaseService implements SavePurchaseUseCase {
     @Override
     public Iterable<PurchaseEntity> findPurchasesByName(String partName) {
         return port.findPurchasesByName(partName);
+    }
+
+    @Override
+    public Iterable<PurchaseEntity> findPurchasesByDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate) {
+        return port.findPurchasesByDate(clientId, beforeDate, afterDate);
     }
 
     @Override
