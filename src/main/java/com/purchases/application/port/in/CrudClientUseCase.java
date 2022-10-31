@@ -1,11 +1,11 @@
-package com.purchases.application.port.out;
+package com.purchases.application.port.in;
 
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.domain.Client;
 
 import java.util.Optional;
 
-public interface SaveClientPort {
+public interface CrudClientUseCase {
 
     Client saveClient(Client client);
 

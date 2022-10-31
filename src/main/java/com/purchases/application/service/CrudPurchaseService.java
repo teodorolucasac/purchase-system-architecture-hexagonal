@@ -1,8 +1,8 @@
 package com.purchases.application.service;
 
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
-import com.purchases.application.port.in.SavePurchaseUseCase;
-import com.purchases.application.port.out.SavePurchasePort;
+import com.purchases.application.port.in.CrudPurchaseUseCase;
+import com.purchases.application.port.out.CrudPurchasePort;
 import com.purchases.domain.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SavePurchaseService implements SavePurchaseUseCase {
+public class CrudPurchaseService implements CrudPurchaseUseCase {
 
-    private final SavePurchasePort port;
+    private final CrudPurchasePort port;
 
     @Override
     public Purchase savePurchase(Purchase purchase, int clientId) {

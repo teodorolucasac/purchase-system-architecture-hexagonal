@@ -1,8 +1,8 @@
 package com.purchases.application.service;
 
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
-import com.purchases.application.port.in.SaveProductUseCase;
-import com.purchases.application.port.out.SaveProductPort;
+import com.purchases.application.port.in.CrudProductUseCase;
+import com.purchases.application.port.out.CrudProductPort;
 import com.purchases.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SaveProductService implements SaveProductUseCase {
+public class CrudProductService implements CrudProductUseCase {
 
-    private final SaveProductPort port;
+    private final CrudProductPort port;
 
     @Override
     public Product saveProduct(Product product, int purchaseId) {

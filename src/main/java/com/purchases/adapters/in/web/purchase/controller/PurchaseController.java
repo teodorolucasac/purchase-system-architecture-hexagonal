@@ -3,7 +3,7 @@ package com.purchases.adapters.in.web.purchase.controller;
 import com.purchases.adapters.in.web.purchase.dto.PurchaseDTO;
 import com.purchases.adapters.in.web.purchase.mapper.PurchaseDtoMapper;
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
-import com.purchases.application.port.in.SavePurchaseUseCase;
+import com.purchases.application.port.in.CrudPurchaseUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class PurchaseController {
 
-    private final SavePurchaseUseCase usecase;
+    private final CrudPurchaseUseCase usecase;
     private final PurchaseDtoMapper mapper;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})

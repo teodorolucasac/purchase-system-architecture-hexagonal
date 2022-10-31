@@ -5,7 +5,7 @@ import com.purchases.domain.Product;
 
 import java.util.Optional;
 
-public interface SaveProductPort {
+public interface CrudProductPort {
 
     Product saveProduct(Product product, int purchaseId);
 

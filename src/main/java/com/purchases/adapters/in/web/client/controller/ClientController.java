@@ -3,7 +3,7 @@ package com.purchases.adapters.in.web.client.controller;
 import com.purchases.adapters.in.web.client.dto.ClientDTO;
 import com.purchases.adapters.in.web.client.mapper.ClientDtoMapper;
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
-import com.purchases.application.port.in.SaveClientUseCase;
+import com.purchases.application.port.in.CrudClientUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ClientController {
 
-    private final SaveClientUseCase usecase;
+    private final CrudClientUseCase usecase;
     private final ClientDtoMapper mapper;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})

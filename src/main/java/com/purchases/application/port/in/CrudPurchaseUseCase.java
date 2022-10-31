@@ -6,7 +6,7 @@ import com.purchases.domain.Purchase;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public interface SavePurchaseUseCase {
+public interface CrudPurchaseUseCase {
 
     Purchase savePurchase(Purchase purchase, int clientId);
 

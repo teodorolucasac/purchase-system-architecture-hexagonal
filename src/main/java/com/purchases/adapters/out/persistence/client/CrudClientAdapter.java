@@ -3,7 +3,7 @@ package com.purchases.adapters.out.persistence.client;
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.adapters.out.persistence.client.mapper.ClientMapper;
 import com.purchases.adapters.out.persistence.client.repository.ClientRepository;
-import com.purchases.application.port.out.SaveClientPort;
+import com.purchases.application.port.out.CrudClientPort;
 import com.purchases.domain.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SaveClientAdapter implements SaveClientPort {
+public class CrudClientAdapter implements CrudClientPort {
 
     private final ClientMapper mapper;
     private final ClientRepository repository;

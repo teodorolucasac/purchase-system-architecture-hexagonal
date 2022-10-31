@@ -5,7 +5,7 @@ import com.purchases.adapters.out.persistence.client.repository.ClientRepository
 import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.adapters.out.persistence.purchase.mapper.PurchaseMapper;
 import com.purchases.adapters.out.persistence.purchase.repository.PurchaseRepository;
-import com.purchases.application.port.out.SavePurchasePort;
+import com.purchases.application.port.out.CrudPurchasePort;
 import com.purchases.domain.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SavePurchaseAdapter implements SavePurchasePort {
+public class CrudPurchaseAdapter implements CrudPurchasePort {
 
     DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 

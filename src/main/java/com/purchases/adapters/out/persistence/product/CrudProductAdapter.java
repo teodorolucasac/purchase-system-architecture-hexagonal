@@ -5,7 +5,7 @@ import com.purchases.adapters.out.persistence.product.mapper.ProductMapper;
 import com.purchases.adapters.out.persistence.product.repository.ProductRepository;
 import com.purchases.adapters.out.persistence.purchase.mapper.PurchaseMapper;
 import com.purchases.adapters.out.persistence.purchase.repository.PurchaseRepository;
-import com.purchases.application.port.out.SaveProductPort;
+import com.purchases.application.port.out.CrudProductPort;
 import com.purchases.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SaveProductAdapter implements SaveProductPort {
+public class CrudProductAdapter implements CrudProductPort {
 
     private final ProductMapper mapper;
     private final ProductRepository repository;

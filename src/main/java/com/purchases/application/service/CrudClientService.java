@@ -1,8 +1,8 @@
 package com.purchases.application.service;
 
 import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
-import com.purchases.application.port.in.SaveClientUseCase;
-import com.purchases.application.port.out.SaveClientPort;
+import com.purchases.application.port.in.CrudClientUseCase;
+import com.purchases.application.port.out.CrudClientPort;
 import com.purchases.domain.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class SaveClientService implements SaveClientUseCase {
+public class CrudClientService implements CrudClientUseCase {
 
-    private final SaveClientPort port;
+    private final CrudClientPort port;
 
     @Override
     public Client saveClient(Client client) {

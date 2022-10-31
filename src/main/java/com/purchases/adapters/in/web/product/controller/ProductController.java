@@ -3,7 +3,7 @@ package com.purchases.adapters.in.web.product.controller;
 import com.purchases.adapters.in.web.product.dto.ProductDTO;
 import com.purchases.adapters.in.web.product.mapper.ProductDtoMapper;
 import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
-import com.purchases.application.port.in.SaveProductUseCase;
+import com.purchases.application.port.in.CrudProductUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private final SaveProductUseCase usecase;
+    private final CrudProductUseCase usecase;
     private final ProductDtoMapper mapper;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
