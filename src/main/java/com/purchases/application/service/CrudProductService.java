@@ -1,12 +1,12 @@
 package com.purchases.application.service;
 
-import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
 import com.purchases.application.port.in.CrudProductUseCase;
 import com.purchases.application.port.out.CrudProductPort;
 import com.purchases.domain.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,22 +21,27 @@ public class CrudProductService implements CrudProductUseCase {
     }
 
     @Override
-    public Iterable<ProductEntity> findAllProducts() {
+    public Product updateProduct(Product product, int purchaseId) {
+        return port.updateProduct(product, purchaseId);
+    }
+
+    @Override
+    public List<Product> findAllProducts() {
         return port.findAllProducts();
     }
 
     @Override
-    public Iterable<ProductEntity> findProductsByName(String partName) {
+    public List<Product> findProductsByName(String partName) {
         return port.findProductsByName(partName);
     }
 
     @Override
-    public Iterable<ProductEntity> findProductsByPage(int numberPages, int numberProducts) {
+    public List<Product> findProductsByPage(int numberPages, int numberProducts) {
         return port.findProductsByPage(numberPages, numberProducts);
     }
 
     @Override
-    public Optional<ProductEntity> findProductById(int id) {
+    public Product findProductById(int id) {
         return port.findProductById(id);
     }
 

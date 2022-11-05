@@ -1,21 +1,23 @@
 package com.purchases.application.port.in;
 
-import com.purchases.adapters.out.persistence.product.entities.ProductEntity;
 import com.purchases.domain.Product;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface CrudProductUseCase {
 
     Product saveProduct(Product product, int purchaseId);
 
-    Iterable<ProductEntity> findAllProducts();
+    Product updateProduct(Product product, int purchaseId);
 
-    Iterable<ProductEntity> findProductsByName(String partName);
+    List<Product> findAllProducts();
 
-    Iterable<ProductEntity> findProductsByPage(int numberPages, int numberProducts);
+    List<Product> findProductsByName(String partName);
 
-    Optional<ProductEntity> findProductById(int id);
+    List<Product> findProductsByPage(int numberPages, int numberProducts);
+
+    Product findProductById(int id);
 
     void deleteProductById(int id);
 }

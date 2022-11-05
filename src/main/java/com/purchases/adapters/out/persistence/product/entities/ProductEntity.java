@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 @Entity
 @Getter
@@ -24,10 +25,10 @@ public class ProductEntity {
     @NotBlank
     private String name;
     @Min(0)
-    private Double price;
+    private BigDecimal price;
     @Min(0)
-    private Double quantity;
-    private Double priceTotal;
+    private BigDecimal quantity;
+    private BigDecimal priceTotal;
 
     @NotNull(message = "ERRO. Vincule o produto à uma compra.")
     @ManyToOne(cascade = CascadeType.MERGE)

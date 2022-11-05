@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Getter
@@ -14,6 +15,6 @@ public class PurchaseDTO {
     private int id;
     private String name;
     private LocalDate date;
-    private Double totalValue;
+    private BigDecimal totalValue;
     private int clientId;
 }

@@ -1,24 +1,27 @@
 package com.purchases.application.port.in;
 
-import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.domain.Purchase;
 
 import java.time.LocalDate;
-import java.util.Optional;
+import java.util.List;
 
 public interface CrudPurchaseUseCase {
 
     Purchase savePurchase(Purchase purchase, int clientId);
 
-    Iterable<PurchaseEntity> findAllPurchases();
+    Purchase updatePurchase(Purchase purchase, int clientId);
 
-    Iterable<PurchaseEntity> findPurchasesByName(String partName);
+    List<Purchase> findAllPurchases();
 
-    Iterable<PurchaseEntity> findPurchasesByDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate);
+    List<Purchase> findPurchasesByName(String partName);
 
-    Iterable<PurchaseEntity> findPurchasesByPage(int numberPages, int numberPurchases);
+    List<Purchase> findPurchasesByClientAndDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate);
 
-    Optional<PurchaseEntity> findPurchaseById(int id);
+    List<Purchase> findAllPurchasesByDate(LocalDate beforeDate, LocalDate afterDate);
+
+    List<Purchase> findPurchasesByPage(int numberPages, int numberPurchases);
+
+    Purchase findPurchaseById(int id);
 
     void deletePurchaseById(int id);
 }

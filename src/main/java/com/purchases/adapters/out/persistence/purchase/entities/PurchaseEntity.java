@@ -8,6 +8,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -27,14 +28,14 @@ public class PurchaseEntity {
     @NotBlank
     private String name;
     private LocalDate date;
-    private Double totalValue;
+    private BigDecimal totalValue;
 
     @NotNull(message = "ERRO. Vincule a compra à um client.")
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "client_id")
     private ClientEntity client;
 
-    @OneToMany(mappedBy = "purchase")
+    @OneToMany(mappedBy = "purchase", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<ProductEntity> product;
 }

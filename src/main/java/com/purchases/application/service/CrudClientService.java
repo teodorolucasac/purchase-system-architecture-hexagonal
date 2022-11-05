@@ -1,13 +1,12 @@
 package com.purchases.application.service;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.application.port.in.CrudClientUseCase;
 import com.purchases.application.port.out.CrudClientPort;
 import com.purchases.domain.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,22 +20,27 @@ public class CrudClientService implements CrudClientUseCase {
     }
 
     @Override
-    public Iterable<ClientEntity> findAllClients() {
+    public Client updateClient(Client client) {
+        return port.updateClient(client);
+    }
+
+    @Override
+    public List<Client> findAllClients() {
         return port.findAllClients();
     }
 
     @Override
-    public Iterable<ClientEntity> findClientsByName(String partName) {
+    public List<Client> findClientsByName(String partName) {
         return port.findClientsByName(partName);
     }
 
     @Override
-    public Iterable<ClientEntity> findClientsByPage(int numberPages, int numberClients) {
+    public List<Client> findClientsByPage(int numberPages, int numberClients) {
         return port.findClientsByPage(numberPages, numberClients);
     }
 
     @Override
-    public Optional<ClientEntity> findClientById(int id) {
+    public Client findClientById(int id) {
         return port.findClientById(id);
     }
 

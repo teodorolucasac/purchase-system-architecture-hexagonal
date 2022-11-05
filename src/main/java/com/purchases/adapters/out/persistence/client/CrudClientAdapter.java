@@ -1,6 +1,5 @@
 package com.purchases.adapters.out.persistence.client;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.adapters.out.persistence.client.mapper.ClientMapper;
 import com.purchases.adapters.out.persistence.client.repository.ClientRepository;
 import com.purchases.application.port.out.CrudClientPort;
@@ -10,7 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,33 +20,37 @@ public class CrudClientAdapter implements CrudClientPort {
 
     @Override
     public Client saveClient(Client client) {
-        var clientEntity = mapper.toClientEntity(client);
-        repository.save(clientEntity);
-        return mapper.toClient(clientEntity);
+        return mapper.toClient(repository.save(mapper.toClientEntity(client)));
     }
 
     @Override
-    public Iterable<ClientEntity> findAllClients() {
-        return repository.findAll();
+    public Client updateClient(Client client) {
+        return mapper.toClient(repository.save(mapper.toClientEntity(client)));
     }
 
     @Override
-    public Iterable<ClientEntity> findClientsByName(String partName) {
-        return repository.findByNameContainingIgnoreCase(partName);
+    public List<Client> findAllClients() {
+        return mapper.toClient(repository.findAll());
     }
 
     @Override
-    public Iterable<ClientEntity> findClientsByPage(int numberPages, int numberClients) {
-        if(numberClients >= 3) numberClients = 3;
+    public List<Client> findClientsByName(String partName) {
+        return mapper.toClient(repository.findByNameContainingIgnoreCase(partName));
+    }
+
+    @Override
+    public List<Client> findClientsByPage(int numberPages, int numberClients) {
+        if(numberClients >= 5) numberClients = 5;
         if(numberClients <= 0) numberClients = 1;
 
+
         Pageable page = PageRequest.of(numberPages, numberClients);
-        return repository.findAll(page);
+        return mapper.toClient(repository.findAll(page));
     }
 
     @Override
-    public Optional<ClientEntity> findClientById(int id) {
-        return repository.findById(id);
+    public Client findClientById(int id) {
+        return mapper.toClient(repository.findById(id));
     }
 
     @Override

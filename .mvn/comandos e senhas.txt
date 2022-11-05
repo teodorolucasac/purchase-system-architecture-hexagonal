@@ -1,0 +1,21 @@
+Criando IMAGEM DOCKER do MySQL na minha Máquina: [NÃO PRECISEI USAR ISSO, POIS USEI RDS]
+docker run -p 3306:3306 --name purchasesdb -e MYSQL_ROOT_PASSWORD=12345678 -e MYSQL_USER=admin -e MYSQL_PASSWORD=12345678 -e MYSQL_DATABASE=purchases -d mysql
+
+Senha do MySQL RDS na AWS:
+usuario: admin
+senha: 12345678
+
+Criando Imagem da Minha Aplicação:
+docker build -t teodorolucasac/purchases:0.1 .
+
+Subindo uma Imagem da minha Aplicação no Dockerhub:
+docker push teodorolucasac/purchases:0.1
+
+Subindo Container da Minha Aplicação na EC2:
+docker run -p 8080:8080 -d teodorolucasac/purchases:0.1
+
+Logar EC2:
+ssh -i ../purchase-aws-keys/purchase-keys.pem ec2-user@ec2-174-129-2-36.compute-1.amazonaws.com
+
+
+

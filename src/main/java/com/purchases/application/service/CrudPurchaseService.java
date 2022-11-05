@@ -1,6 +1,5 @@
 package com.purchases.application.service;
 
-import com.purchases.adapters.out.persistence.purchase.entities.PurchaseEntity;
 import com.purchases.application.port.in.CrudPurchaseUseCase;
 import com.purchases.application.port.out.CrudPurchasePort;
 import com.purchases.domain.Purchase;
@@ -8,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.Optional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,27 +21,37 @@ public class CrudPurchaseService implements CrudPurchaseUseCase {
     }
 
     @Override
-    public Iterable<PurchaseEntity> findAllPurchases() {
+    public Purchase updatePurchase(Purchase purchase, int clientId) {
+        return port.updatePurchase(purchase, clientId);
+    }
+
+    @Override
+    public List<Purchase> findAllPurchases() {
         return port.findAllPurchases();
     }
 
     @Override
-    public Iterable<PurchaseEntity> findPurchasesByName(String partName) {
+    public List<Purchase> findPurchasesByName(String partName) {
         return port.findPurchasesByName(partName);
     }
 
     @Override
-    public Iterable<PurchaseEntity> findPurchasesByDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate) {
-        return port.findPurchasesByDate(clientId, beforeDate, afterDate);
+    public List<Purchase> findPurchasesByClientAndDate(Integer clientId, LocalDate beforeDate, LocalDate afterDate) {
+        return port.findPurchasesByClientAndDate(clientId, beforeDate, afterDate);
     }
 
     @Override
-    public Iterable<PurchaseEntity> findPurchasesByPage(int numberPages, int numberPurchases) {
+    public List<Purchase> findAllPurchasesByDate(LocalDate beforeDate, LocalDate afterDate) {
+        return port.findAllPurchasesByDate(beforeDate, afterDate);
+    }
+
+    @Override
+    public List<Purchase> findPurchasesByPage(int numberPages, int numberPurchases) {
         return port.findPurchasesByPage(numberPages, numberPurchases);
     }
 
     @Override
-    public Optional<PurchaseEntity> findPurchaseById(int id) {
+    public Purchase findPurchaseById(int id) {
         return port.findPurchaseById(id);
     }
 

@@ -1,21 +1,22 @@
 package com.purchases.application.port.in;
 
-import com.purchases.adapters.out.persistence.client.entities.ClientEntity;
 import com.purchases.domain.Client;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface CrudClientUseCase {
 
     Client saveClient(Client client);
 
-    Iterable<ClientEntity> findAllClients();
+    Client updateClient(Client client);
 
-    Iterable<ClientEntity> findClientsByName(String partName);
+    List<Client> findAllClients();
 
-    Iterable<ClientEntity> findClientsByPage(int numberPages, int numberClients);
+    List<Client> findClientsByName(String partName);
 
-    Optional<ClientEntity> findClientById(int id);
+    List<Client> findClientsByPage(int numberPages, int numberClients);
+
+    Client findClientById(int id);
 
     void deleteClientById(int id);
 }
